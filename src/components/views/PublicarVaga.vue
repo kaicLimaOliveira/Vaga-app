@@ -60,9 +60,6 @@
     </div>
 
     <div class="row mt-3">
-      <!-- {{ title }} | {{ description }} | {{ salary }} | {{ modality }} |{{
-        type
-      }} -->
       <div class="col">
         <button type="submit" @click="saveVacancy()" class="btn btn-primary">
           Cadastrar
@@ -81,11 +78,14 @@ export default {
     salary: "",
     modality: "",
     type: "",
+    datePublished: "",
   }),
   methods: {
     saveVacancy() {
+      let newDate = Date.now()
+      let datePublished = new Date(newDate)
+
       let vacancy = JSON.parse(localStorage.getItem("Vagas"));
-      console.log(vacancy[0].title);
 
       if (!vacancy) vacancy = [];
 
@@ -95,10 +95,29 @@ export default {
         salary: this.salary,
         modality: this.modality,
         type: this.type,
+        datePublished: datePublished
       });
 
+
       localStorage.setItem("Vagas", JSON.stringify(vacancy));
+
+      this.resetForm()
+
+      this.$swal({
+        icon: 'success',
+        title: 'Registro com sucesso',
+        text: 'Vaga registrada com sucesso'
+      })
     },
+    resetForm() {
+      this.title = ""
+      this.description = ""
+      this.salary = ""
+      this.modality = ""
+      this.type = ""
+      this.datePublished = ""
+    }
+    
   },
 };
 </script>

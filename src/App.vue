@@ -1,18 +1,26 @@
 <template>
-  <TopoPadrao />
-  <Conteudo />
+  <TopoPadrao @navigation="component = $event" />
+  <VagasFavoritas />
+  <Conteudo v-if="visibility" :content="component" />
+  
 </template>
 
 <script>
 import Conteudo from "@/components/layout/Conteudo.vue";
 import TopoPadrao from "@/components/layout/TopoPadrao.vue";
+import VagasFavoritas from "@/components/common/VagasFavoritas.vue";
 
 export default {
   name: "App",
   components: {
     Conteudo,
     TopoPadrao,
+    VagasFavoritas
   },
+  data: () => ({
+    component: 'Home',
+    visibility: true
+  }),
 };
 </script>
 
