@@ -6,17 +6,13 @@
       </div>
     </div>
 
-    <div class="row mt-3">
-      <div class="col-6 mt-4" v-for="(vaga, index) in vagas" :key="index">
-        <Vagas v-bind="vaga" />
-      </div>
-    </div>
+    <ListaVagas />
 
     <div class="row mt-5">
       <div class="col-4">
         <Indicador
           titulo="Vagas abertas"
-          :indicador="5"
+          :indicador="openVacancy"
           bg="bg-dark"
           color="text-white"
         />
@@ -46,34 +42,33 @@
 <script>
 import Indicador from "@/components/common/Indicador.vue";
 import PesquisarVaga from "@/components/common/PesquisarVaga.vue";
-import Vagas from "@/components/common/Vaga.vue";
+import ListaVagas from "@/components/common/ListaVagas.vue";
 
 export default {
   name: "PesquisaVaga",
   components: {
     PesquisarVaga,
     Indicador,
-    Vagas,
+    ListaVagas,
   },
 
   data: () => ({
     usersOnline: 0,
-    vagas: [],
+    openVacancy: 0,
   }),
 
   methods: {
     getUsersOnline() {
       this.usersOnline = Math.floor(Math.random() * 101);
     },
-
   },
 
+  activated() {
+    this.openVacancy = JSON.parse(localStorage.getItem("Vagas")).length;
+  },
   created() {
     setInterval(this.getUsersOnline, 4000);
   },
-  activated() { //Chamado uma única vez quando o componente é montado
-    this.vagas = JSON.parse(localStorage.getItem('Vagas'))
-  }
 };
 </script>
 

@@ -82,11 +82,10 @@ export default {
   }),
   methods: {
     saveVacancy() {
-      let newDate = Date.now()
-      let datePublished = new Date(newDate)
+      let newDate = Date.now();
+      let datePublished = new Date(newDate);
 
       let vacancy = JSON.parse(localStorage.getItem("Vagas"));
-
       if (!vacancy) vacancy = [];
 
       vacancy.push({
@@ -95,29 +94,45 @@ export default {
         salary: this.salary,
         modality: this.modality,
         type: this.type,
-        datePublished: datePublished
+        datePublished: datePublished,
       });
 
+      if (this.validateFormVoid()) {
+        localStorage.setItem("Vagas", JSON.stringify(vacancy));
 
-      localStorage.setItem("Vagas", JSON.stringify(vacancy));
-
-      this.resetForm()
-
-      this.$swal({
-        icon: 'success',
-        title: 'Registro com sucesso',
-        text: 'Vaga registrada com sucesso'
-      })
+        this.$swal({
+          icon: "success",
+          title: "Registro com sucesso",
+          text: `A vaga ${this.title} foi registrada com sucesso!`,
+        });
+        this.resetForm();
+      } else {
+        this.$swal({
+          icon: "error",
+          title: "Ocorreu um erro...",
+          text: `Por favor, preencha corretamente o formulário!`,
+        });
+      }
     },
     resetForm() {
-      this.title = ""
-      this.description = ""
-      this.salary = ""
-      this.modality = ""
-      this.type = ""
-      this.datePublished = ""
-    }
-    
+      this.title = "";
+      this.description = "";
+      this.salary = "";
+      this.modality = "";
+      this.type = "";
+      this.datePublished = "";
+    },
+    validateFormVoid() {
+      let validate = true;
+
+      if (!this.title) validate = false;
+      if (!this.description) validate = false;
+      if (!this.salary) validate = false;
+      if (!this.modality) validate = false;
+      if (!this.type) validate = false;
+
+      return validate;
+    },
   },
 };
 </script>

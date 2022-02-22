@@ -11,13 +11,14 @@
 
 
 <p align="center">
-  <!-- <img alt="Task" src=".github/img1.jpeg" width="80%"> -->
-  
+  <img alt="Task" src=".github/img1.jpeg" width="90%">
+  <img alt="Task" src=".github/img2.jpeg" width="90%">
+  <img alt="Task" src=".github/img3.jpeg" width="90%">
 </p>
 
 ## 💻 Projeto
 
-Em desenvolvimento.
+Esse projeto consiste em um aprofundamento do estudo sobre os componentes do VueJse em sua lógica, trata-se de um app de registro de vagas com local storage, o filtro de vagas e da ação de favoritar as vagas. Também como complemento do projeto, temos uma aplicação desktop, servida com electron, basta executar o comando descritos no projeto para visualizar ambas versões.
 
 
 ## ✨ Tecnologias utilizadas
@@ -27,6 +28,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [VueJs](https://vuejs.org/)
 - [JavaScript](https://www.javascript.com/)
 - [Electron](https://www.electronjs.org/)
+- [Bootstrap](https://getbootstrap.com/)
 
 ## 🚀 Como executar
 
