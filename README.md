@@ -20,6 +20,10 @@
 
 Esse projeto consiste em um aprofundamento do estudo sobre os componentes do VueJse em sua lógica, trata-se de um app de registro de vagas com local storage, o filtro de vagas e da ação de favoritar as vagas. Também como complemento do projeto, temos uma aplicação desktop, servida com electron, basta executar o comando descritos no projeto para visualizar ambas versões.
 
+## 🌐 Veja o site 
+```bash
+https://vaga-app.vercel.app/
+```
 
 ## ✨ Tecnologias utilizadas
 
