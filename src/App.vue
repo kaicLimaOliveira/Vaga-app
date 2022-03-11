@@ -2,7 +2,6 @@
   <TopoPadrao @navigation="component = $event" />
   <VagasFavoritas />
   <Conteudo v-if="visibility" :content="component" />
-  
 </template>
 
 <script>
@@ -15,11 +14,11 @@ export default {
   components: {
     Conteudo,
     TopoPadrao,
-    VagasFavoritas
+    VagasFavoritas,
   },
   data: () => ({
-    component: 'Home',
-    visibility: true
+    component: "Home",
+    visibility: true,
   }),
 };
 </script>
@@ -31,6 +30,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  min-width: 500px;
+  /* min-width: 500px; */
 }
 </style>
